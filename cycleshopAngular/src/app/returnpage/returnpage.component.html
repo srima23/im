@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="center-table">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Quantity</th>
+                        <!-- <th scope="col">Price</th> -->
+                        <!-- <th scope="col">Borrowed</th> -->
+                        <!-- <th scope="col">Quantity</th> -->
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let cycle of newdata">
+                        <tr *ngIf="cycle.booked && !cycle.returned">
+                            <th scope="row">{{ cycle.id }}</th>
+                            <td>{{ cycle.cycle.brand }}</td>
+                            <td>{{ cycle.quantity }}</td>
+                            <!-- <td>{{ cycle.cycle.price }}</td> -->
+                            <!-- <td>{{ cycle.numBorrowed }}</td> -->
+                            <!-- <td>
+                                <div class="input-container">
+                                    <input type="number" [(ngModel)]="cycle.quantityToBorrow" min="0" step="1">
+                                </div>
+                            </td> -->
+                            <div class="btn-return">
+                                <button (click)="returnCycle(cycle.id)" class="button-3">Return</button>
+                            </div>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

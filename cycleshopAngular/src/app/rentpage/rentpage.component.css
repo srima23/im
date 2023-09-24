@@ -1,0 +1,85 @@
+/* CSS */
+.button-3 {
+    appearance: none;
+    background-color: #e52f25;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+}
+
+.button-3:hover {
+    background-color: #ff7070;
+}
+
+
+.button-3:active {
+    background-color: #bc2119;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+.input-container {
+    position: relative;
+    width: 80px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-left: 50px;
+}
+input[type="number"]:focus {
+    outline: none;
+}
+
+.btn-return {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 10px
+}
+
+
+.table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 7vw;
+}
+
+.table thead th {
+    background-color: #1b1056;
+    color: #fff;
+    text-align: left;
+}
+
+.table tbody tr:hover {
+    background-color:#e7e6f8;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+}
+
+.center-table {
+    text-align: center;
+}

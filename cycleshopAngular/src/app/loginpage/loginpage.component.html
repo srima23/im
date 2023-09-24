@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form (ngSubmit)="login()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" [(ngModel)]="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" [(ngModel)]="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <!-- <script>
+        function login() {
+            // Assume a successful login here
+            // For demonstration purposes, let's assume the login is successful
+            // You can replace this with your actual login logic
+
+            // Show alert on successful login
+            alert('You have successfully logged in!');
+        } -->
+    <!-- </script> -->
+
+</body>
+
+</html>

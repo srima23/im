@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Add this code to your Angular component's HTML template -->
+
+    <h1>My Orders</h1>
+
+    <div class="shopping-cart">
+        <div class="column-labels">
+            <label class="product-image">Image</label>
+            <label class="product-details">Product</label>
+            <label class="product-price">Price</label>
+            <label class="product-quantity">Quantity</label>
+            <label class="product-removal">Remove</label>
+            <label class="product-line-price">Total</label>
+        </div>
+
+        <div *ngFor="let item of newdata" class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1570865116909-d358c47f1806?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                    alt="pic" />
+            </div>
+            <div class="product-details">
+                <div class="product-title">{{ item.cycle.brand }}</div>
+            </div>
+            <div class="product-price">{{ item.cycle.price }}</div>
+            <div class="product-quantity">
+                {{ item.quantity }}
+            </div>
+            <!-- <div class="product-removal">
+                <button class="remove-product" (click)="removeFromCart(item.cycle.id,'reduce')">
+                    Reduce
+                </button>
+                <button class="remove-product" (click)="removeFromCart(item.cycle.id,'remove')">
+                    Remove
+                </button>
+            </div> -->
+            <div class="product-line-price">{{ item.cycle.price * item.quantity }}</div>
+        </div>
+
+        <div class="totals">
+            <div class="totals-item">
+                <label>Subtotal</label>
+                <div class="totals-value" id="cart-subtotal">{{ calculateSubtotal(newdata) }}</div>
+            </div>
+            <div class="totals-item totals-item-total">
+                <label>Grand Total</label>
+                <div class="totals-value" id="cart-total">{{ calculateSubtotal(newdata) }}</div>
+            </div>
+        </div>
+
+        <button class="checkout" (click)="checkout()">Checkout</button>
+    </div>
+
+</body>
+
+</html>

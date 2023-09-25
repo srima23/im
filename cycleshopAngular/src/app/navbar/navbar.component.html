@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -23,8 +23,8 @@
             </ul>
         </nav>
        
-            <!-- <button></button> -->
-       
+             <button></button> -->
+<!--        
         <ul class="nav__links">
             <li>
                 <a href="/cart"><img class="cart" src="../../assets/cart2.png" alt="Cart"></a>
@@ -38,5 +38,98 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+ 
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Navbar</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+
+ 
+
+<body>
+
+    <header>
+
+        <a href="/home">
+
+            <img class="logo" src="../../assets/cycle1.png" alt="logo">
+
+        </a>
+
+        <nav>
+
+            <ul class="nav__links">
+
+                <li>
+
+                    <a href="/rent"><img class="rent" src="../../assets/rent-icon.png" alt="Login"></a>
+
+                    <a href="/return" style="color: black;"><b>Return</b></a>
+                    <a href="/restock" style="color: black;"><b>Restock </b></a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <!-- <a href="/restock" class="cta">
+
+            <button>Restock</button> -->
+
+        <!-- </a> -->
+
+        <ul class="nav__links">
+
+            <li>
+
+                <a href="/cart"><img class="cart" src="../../assets/cart2.png" alt="Cart"></a>
+                 <!-- Toggle login/logout button based on authentication -->
+             
+
+                <ng-container *ngIf="!isAuthenticated(); else loggedIn">
+
+                <a href="/login"><img class="login" src="../../assets/login1.png" alt="Login"></a>
+
+                </ng-container>
+
+                <ng-template #loggedIn>
+
+                    <button (click)="logout()">Logout</button>
+
+                </ng-template>
+
+            </li>
+
+        </ul>
+
+    </header>
+
+ 
+
+    <script src="https://kit.fontawesome.com/bdccf257ac.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+
+ 
 
 </html>

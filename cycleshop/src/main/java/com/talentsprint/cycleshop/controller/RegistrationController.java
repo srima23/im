@@ -1,93 +1,93 @@
-package com.talentsprint.cycleshop.controller;
+// package com.talentsprint.cycleshop.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.stereotype.Controller;
+// import org.springframework.stereotype.Controller;
 
-import org.springframework.ui.Model;
+// import org.springframework.ui.Model;
 
-import org.springframework.validation.BindingResult;
+// import org.springframework.validation.BindingResult;
 
-import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.GetMapping;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
+// import org.springframework.web.bind.annotation.ModelAttribute;
 
-import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.PostMapping;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+// import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.talentsprint.cycleshop.service.DomainUserService;
-import com.talentsprint.cycleshop.service.RegistrationForm;
+// import com.talentsprint.cycleshop.service.DomainUserService;
+// import com.talentsprint.cycleshop.service.RegistrationForm;
 
-@Controller
+// @Controller
 
-@RequestMapping("/api/cycle")
+// @RequestMapping("/api/cycle")
 
-public class RegistrationController {
+// public class RegistrationController {
 
-    @Autowired
+//     @Autowired
 
-    private DomainUserService domainUserService;
+//     private DomainUserService domainUserService;
 
-    @GetMapping("/register")
+//     @GetMapping("/register")
 
-    public String getRegistrationForm(Model model) {
+//     public String getRegistrationForm(Model model) {
 
-        if (!model.containsAttribute("registrationForm")) {
+//         if (!model.containsAttribute("registrationForm")) {
 
-            model.addAttribute("registrationForm", new RegistrationForm());
+//             model.addAttribute("registrationForm", new RegistrationForm());
 
-        }
+//         }
 
-        return "register";
+//         return "register";
 
-    }
+//     }
 
-    @PostMapping("/register")
+//     @PostMapping("/register")
 
-    public String register(@ModelAttribute("registrationForm") RegistrationForm registrationForm,
+//     public String register(@ModelAttribute("registrationForm") RegistrationForm registrationForm,
 
-            BindingResult bindingResult,
+//             BindingResult bindingResult,
 
-            RedirectAttributes attr) {
+//             RedirectAttributes attr) {
 
-        System.out.println("id:" + registrationForm.getUsername());
+//         System.out.println("id:" + registrationForm.getUsername());
 
-        System.out.println("id:" + registrationForm.getPassword());
+//         System.out.println("id:" + registrationForm.getPassword());
 
-        System.out.println("id:" + registrationForm.getRepeatPassword());
+//         System.out.println("id:" + registrationForm.getRepeatPassword());
 
-        System.out.println("id:" + registrationForm.getRole());
+//         System.out.println("id:" + registrationForm.getRole());
 
-        if (bindingResult.hasErrors()) {
+//         if (bindingResult.hasErrors()) {
 
-            attr.addFlashAttribute("org.springframework.validation.BindingResult.registrationForm", bindingResult);
+//             attr.addFlashAttribute("org.springframework.validation.BindingResult.registrationForm", bindingResult);
 
-            attr.addFlashAttribute("registrationForm", registrationForm);
+//             attr.addFlashAttribute("registrationForm", registrationForm);
 
-            return "redirect:/register";
+//             return "redirect:/register";
 
-        }
+//         }
 
-        if (!registrationForm.isValid()) {
+//         if (!registrationForm.isValid()) {
 
-            attr.addFlashAttribute("message", "Passwords must match");
+//             attr.addFlashAttribute("message", "Passwords must match");
 
-            attr.addFlashAttribute("registrationForm", registrationForm);
+//             attr.addFlashAttribute("registrationForm", registrationForm);
 
-            return "redirect:/register";
+//             return "redirect:/register";
 
-        }
+//         }
 
-        System.out.println(domainUserService.save(registrationForm.getUsername(), registrationForm.getPassword(),
-                registrationForm.getRole()));
+//         System.out.println(domainUserService.save(registrationForm.getUsername(), registrationForm.getPassword(),
+//                 registrationForm.getRole()));
 
-        attr.addFlashAttribute("result", "Registration success!");
+//         attr.addFlashAttribute("result", "Registration success!");
 
-        return "redirect:/login";
+//         return "redirect:/login";
 
-    }
+//     }
 
-}
+// }

@@ -1,17 +1,67 @@
-* {
-    font-size: 15px;
-}
-
-.gradient-custom {
-    /* fallback for old browsers */
-    background: #00cc66;
-    /* Light Green */
-
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(0, 204, 102, 1), rgba(51, 255, 153, 1));
-    /* Light Green to Mint Green */
-
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(0, 204, 102, 1), rgba(51, 255, 153, 1));
-    /* Light Green to Mint Green */
-}
+body {
+    font-family: Arial, sans-serif;
+    background: #0c0c4d;
+    background: linear-gradient(90deg, rgb(19, 12, 63) 0%, rgb(100, 154, 198) 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .register-container {
+    background-color: #fff;
+    border: 3px solid #1c1717;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 350px;
+    width: 100%;
+    margin-bottom: 500pxpx;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Optional: Center the form horizontally */
+  @media (max-width: 400px) {
+    .login-container {
+      max-width: 90%;
+    }
+  }
+  

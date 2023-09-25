@@ -46,36 +46,6 @@ public class UserService {
         return userRepository.findByName(name);
     }
 
-    // public ResponseEntity<String> registerUser(User user) {
-    // try {
-    // // Validate user data (e.g., check for duplicate usernames)
-    // Optional<User> existingUser = userRepository.findByName(user.getName());
-    // if (existingUser.isPresent()) {
-    // return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already
-    // exists");
-    // }
-
-    // // Check if the username and password are "admin"
-    // if ("admin".equals(user.getName()) && "admin".equals(user.getPassword())) {
-    // user.setRole("ADMIN");
-    // } else {
-    // user.setRole("USER");
-    // }
-
-    // // Hash the user's password
-    // user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-    // // Save the user to the database
-    // userRepository.save(user);
-
-    // return ResponseEntity.ok("User registered successfully");
-    // } catch (Exception e) {
-    // // Handle registration errors, such as validation failures or database errors
-    // return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Registration
-    // failed: " + e.getMessage());
-    // }
-    // }
-
     public boolean authenticateUser(String username, String password) {
         Optional<User> user = userRepository.findByName(username);
 

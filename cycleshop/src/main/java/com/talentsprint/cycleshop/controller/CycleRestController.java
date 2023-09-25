@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
@@ -96,7 +97,8 @@ public class CycleRestController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred.");
         }
     }
-
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/{id}/restock")
     public ResponseEntity<String> restockCycle(
             @RequestBody CycleJsonInputIdCount IdCount) {
@@ -115,7 +117,7 @@ public class CycleRestController {
         System.out.println("Get Request");
         return ResponseEntity.ok(cycleService.listCycles());
     }
-
+    
     @PostMapping("/addcycle")
     public ResponseEntity<String> addCycle(@RequestBody Cycle cycle) {
         return cycleService.addCycle(cycle);
@@ -136,29 +138,26 @@ public class CycleRestController {
                 registrationForm.setRole("USER");
             }
 
-            if (domainUserService.getByName(registrationForm.getUsername()) == null) {
-
+            if (domainUserService.getByName(registrationForm.getUsername()).isPresent()) {
+                
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already exists");
 
             }
 
             if (!registrationForm.getPassword().equals(registrationForm.getRepeatPassword())) {
-
+                
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Password doesnot match");
 
             }
-
             System.out.println(domainUserService.save(registrationForm.getUsername(), registrationForm.getPassword(),
                     registrationForm.getRole()));
-
+            
             return ResponseEntity.ok("User registered successfully");
 
         } catch (Exception e) {
-
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Registration failed: " + e.getMessage());
 
         }
-
     }
 
     @PostMapping("/{id}/cart")

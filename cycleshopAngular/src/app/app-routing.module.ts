@@ -9,6 +9,7 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
 import { CartpageComponent } from './cartpage/cartpage.component';
 
 const routes: Routes = [
+  { path: '',redirectTo : '/login',pathMatch :'full'},
   { path: 'home', component: HomepageComponent },
   { path: 'restock', component: RestockpageComponent },
   { path: 'return', component: ReturnpageComponent },

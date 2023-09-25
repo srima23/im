@@ -16,6 +16,9 @@ import com.talentsprint.cycleshop.business.LoggedInUser;
 import com.talentsprint.cycleshop.entity.User;
 import com.talentsprint.cycleshop.service.UserService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 @RequestMapping("/loginpage")
@@ -53,6 +56,14 @@ public class LoginController {
         }
         this.loggedInUser.setLoggedInUser(authResult.get());
         return "redirect:/cycle/list";
+    }
+     @GetMapping("/logout")
+    public String logout(HttpServletRequest request, HttpSession session) {
+        // Invalidating the session
+        session.invalidate();
+
+        // Redirect to the login page
+        return "redirect:/loginpage";
     }
 
 }

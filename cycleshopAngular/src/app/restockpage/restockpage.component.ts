@@ -20,11 +20,11 @@ export class RestockpageComponent {
 
   
   constructor(private authService: AuthService, private _http: HttpClient) {
-    this.isAdmin = this.authService.getUserRole() === 'admin';
+    this.isAdmin = this.authService.getUserScope() === 'ROLE_ADMIN';
   }
 
   submitForm() {
-    if (this.isAdmin) {
+    if (this.authService.getUserScope()==='ROLE_ADMIN') {
     
     const cycleData = {
       id: this.cycleid,
@@ -53,7 +53,7 @@ export class RestockpageComponent {
 }
 
   submitAddCycleForm() {
-    if (this.isAdmin) {
+    if (this.authService.getUserScope()==='ROLE_ADMIN') {
     const newcycleData = {
       brand: this.cyclebrand,
       stock: this.cyclestock,

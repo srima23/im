@@ -64,8 +64,11 @@ public class BasicConfiguration {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfig))
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/register", "/api/auth/token","/api/cycles/list-data")
+                        .requestMatchers("/api/cycles/register", "/api/auth/token","/api/cycles/list-data")
+                        
                         .permitAll()
+                        .requestMatchers("/api/{id}/restock","/api/auth/token").hasAuthority("SCOPE_ROLE_ADMIN")
+                        
                         .anyRequest().authenticated())
                 .logout(withDefaults())
                 .httpBasic(withDefaults())
@@ -103,5 +106,6 @@ public class BasicConfiguration {
     public RegistrationForm registrationForm() {
         return new RegistrationForm();
     }
+   
 
 }
